@@ -112,22 +112,22 @@ const linksList = [
   {
     title: "Мои проекты",
     icon: "code",
-    link: "/",
+    link: "/pro",
   },
   {
     title: "Справочник",
     icon: "help",
-    link: "/",
+    link: "/help",
   },
   {
     title: "Сообщения",
     icon: "record_voice_over",
-    link: "/",
+    link: "/mes",
   },
   {
     title: "Настройки",
     icon: "rss_feed",
-    link: "/",
+    link: "/set",
   },
   {
     title: "О проекте",

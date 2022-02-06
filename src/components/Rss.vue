@@ -1,6 +1,6 @@
 <template>
   <div class="rss">
-    <q-icon name="rss_feed" class="q-mr-sm" color="secondary"></q-icon>
+    <q-icon name="rss_feed" class="q-mr-sm" color="white"></q-icon>
     <span
       class="line ellipsis"
       v-for="(item, i) in items"
@@ -98,6 +98,7 @@ export default defineComponent({
 
 .link {
   text-decoration: none;
-  color: $secondary;
+  color: white;
+  opacity: 0.8;
 }
 </style>
