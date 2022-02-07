@@ -21,8 +21,8 @@
               {{ pkg.title }}
             </q-toolbar-title>
 
-            <q-chip dark color="secondary" v-if="login" class="q-mr-sm">{{
-              login
+            <q-chip dark color="secondary" v-if="userName" class="q-mr-sm">{{
+              userName
             }}</q-chip>
             <q-input
               item-aligned
@@ -77,7 +77,7 @@
         <q-card-section class="q-pt-none">
           <q-input
             dense
-            v-model="login"
+            v-model="userName"
             autofocus
             @keyup.enter="prompt = false"
           />
@@ -136,7 +136,8 @@ const linksList = [
   },
 ];
 
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "MainLayout",
@@ -149,12 +150,20 @@ export default defineComponent({
 
   setup() {
     const leftDrawerOpen = ref(false);
+    const $store = useStore();
+    const userName = computed({
+      get: () => $store.state.mes.userName,
+      set: (val) => {
+        $store.commit("mes/updateUserNameState", val);
+      },
+    });
     return {
       pkg,
+      userName,
+      $store,
       essentialLinks: linksList,
       leftDrawerOpen,
       prompt: ref(false),
-      login: ref(""),
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },

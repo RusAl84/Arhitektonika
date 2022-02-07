@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-block" v-if="userName">
     <q-card flat bordered class="full-width">
       <q-card-section>
         <q-chat-message

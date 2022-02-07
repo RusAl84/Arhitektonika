@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-block">
+  <q-page class="flex flex-block" v-if="userName">
     <q-card class="main-panel">
       <div class="main-panel">
         <div>
@@ -155,16 +155,30 @@
       </div>
     </q-card>
   </q-page>
+  <q-page class="flex flex-block" v-if="!userName">
+    <h5>Необходима авторизация, пожалуйста авторизируйтесь</h5>
+  </q-page>
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, computed, ref } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "PageIndex",
   setup() {
+    const $store = useStore();
+    const userName = computed({
+      get: () => $store.state.mes.userName,
+      set: (val) => {
+        $store.commit("mes/updateUserNameState", val);
+      },
+    });
+    let slide = ref(1);
     return {
-      slide: ref(1),
+      slide,
+      $store,
+      userName,
     };
   },
 });
