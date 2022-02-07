@@ -111,7 +111,7 @@ const linksList = [
   },
   {
     title: "Мои проекты",
-    icon: "code",
+    icon: "mdi-compass",
     link: "/pro",
   },
   {
@@ -121,17 +121,17 @@ const linksList = [
   },
   {
     title: "Сообщения",
-    icon: "record_voice_over",
+    icon: "message",
     link: "/mes",
   },
   {
     title: "Настройки",
-    icon: "rss_feed",
+    icon: "settings",
     link: "/set",
   },
   {
     title: "О проекте",
-    icon: "favorite",
+    icon: "mdi-information ",
     link: "/about",
   },
 ];
